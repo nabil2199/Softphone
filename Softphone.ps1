@@ -37,25 +37,25 @@ ForEach ($user in $usersList)
             {
             Grant-csvoicepolicy -Identity $user.upn -PolicyName VP-BTIP-Phone-Limited
             }
-        elseif($CurrentVoicePolicy.friendlyname -eq "VP-BTIP-National-Limited")
+        elseif($CurrentVoicePolicy.friendlyname -eq "VP-National-Limited")
             {
             Grant-csvoicepolicy -Identity $user.upn -PolicyName VP-BTIP-National-Limited
             }
-        elseif($CurrentVoicePolicy.friendlyname -eq "VP-BTIP-National-CallCharge")
+        elseif($CurrentVoicePolicy.friendlyname -eq "VP-National-CallCharge")
             {
             Grant-csvoicepolicy -Identity $user.upn -PolicyName VP-BTIP-National-CallCharge
             }
-        elseif($CurrentVoicePolicy.friendlyname -eq "VP-BTIP-National")
+        elseif($CurrentVoicePolicy.friendlyname -eq "VP-National")
             {
             Grant-csvoicepolicy -Identity $user.upn -PolicyName VP-BTIP-National 
             }
-        elseif($CurrentVoicePolicy.friendlyname -eq "VP-BTIP-International")
+        elseif($CurrentVoicePolicy.friendlyname -eq "VP-International")
             {
             Grant-csvoicepolicy -Identity $user.upn -PolicyName VP-BTIP-International
             }
         }
 	
-    elseif ($user.VoicePolicy -ne NULL)
+    elseif ($user.VoicePolicy -ne $null )
         {
         Grant-CsVoicePolicy -Identity $user.upn -PolicyName $user.VoicePolicy
 	    if ($? -eq $true)
