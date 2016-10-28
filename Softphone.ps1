@@ -3,20 +3,13 @@ Softphone User voice policy change
 Version 0.1
 OCWS
 #>
-<#
-param (
-	[Parameter(Position=0,
-				HelpMessage="Path to input CSV file")]
-	[alias("CSVPath")]
-	[String]$InputCSVPath="C:\Users\NXLX8474\Desktop\users.csv"
-)
-#>
+
+param([string]$userCsv = "C:\Sources\users.csv")
 
 #User CSV loading
 $usersList = $null
-$usersList = Import-Csv C:\Sources\scriptsoftphone\SoftphoneUsers.csv
+$usersList = Import-Csv $userCsv
 $count = $usersList.count
-
 Write-Host "User count within CSV file=" $count
 Write-Host ""
 
